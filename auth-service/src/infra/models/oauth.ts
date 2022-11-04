@@ -1,0 +1,7 @@
+interface OauthRequest {
+
+}
+
+export {
+    OauthRequest
+}
