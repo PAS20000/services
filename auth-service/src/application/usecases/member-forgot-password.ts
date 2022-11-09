@@ -1,15 +1,15 @@
 import EmailMessages from "../../domain/entities/email-messages/email-messages"
 import MemberNotFound from "../errors/member-not-found"
-import { ForgotPasswordRequest, ForgotPasswordResponse } from "./interfaces/member-forgot-password"
+import { CreateForgotPassWord } from "./interfaces/member-forgot-password"
 
-const ForgotPassword = async ({ 
+const ForgotPassword : CreateForgotPassWord = async ({ 
     email,
     access_token,
     nickname,
     name,
     emailService, 
     repository
-} : ForgotPasswordRequest) : Promise<ForgotPasswordResponse> => {
+}) => {
     const member = await repository.findByEmail(email)
     
     if (member) {

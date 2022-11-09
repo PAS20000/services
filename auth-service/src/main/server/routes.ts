@@ -22,7 +22,10 @@ const Routes = ({
     })
 
     router.get('/member/oauth/:provider', async (req, res) => {
-        
+        const provider = req.params.provider
+        if (provider === 'google') {
+            
+        }
     })
 
     router.post('/member/forgot', async (req, res) => {

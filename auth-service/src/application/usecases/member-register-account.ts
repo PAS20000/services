@@ -1,8 +1,8 @@
 import EmailMessages from '../../domain/entities/email-messages/email-messages'
 import ExistMemberInDb from '../errors/member-exist-in-db'
-import { RegisterRequest, RegisterResponse } from './interfaces/member-register-account'
+import { CreateRegister } from './interfaces/member-register-account'
 
-const Register = async ({
+const Register : CreateRegister = async ({
     email,
     name,
     nickname,
@@ -17,7 +17,7 @@ const Register = async ({
     verified,
     repository,
     emailService
-} : RegisterRequest) : Promise<RegisterResponse> => {
+}) => {
     const existMemberinDb = await repository.findByEmail(email)
     
     if (existMemberinDb) {
@@ -35,7 +35,8 @@ const Register = async ({
             secrets,
             updatedAt,
             email,
-            verified
+            verified,
+            avatar : ''
         })
         await emailService.Send(
             EmailMessages({ 

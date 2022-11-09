@@ -19,10 +19,13 @@ interface UpdateRequest extends MemberReponseApplicationModel {
     repository : MemberRepositoryResponseApplicationModel
 }
 
-interface UpdateResponse extends MemberInRepositoryApplicationModel {}
+interface UpdateResponse extends Promise<MemberInRepositoryApplicationModel> {}
+
+type CreateUpdate = (req : UpdateRequest) => UpdateResponse
 
 export {
     UpdateRequest,
     UpdateResponse,
-    NewMember
+    NewMember,
+    CreateUpdate
 }

@@ -1,13 +1,13 @@
-import { SendEmailRequest, SendEmailResponse } from "./interfaces/member-send-email"
+import { CreateSendEmail } from "./interfaces/member-send-email"
 
-const SendEmail = async ({ 
+const SendEmail : CreateSendEmail = async ({ 
     name,
     nickname,
     email,
     message, 
     reason, 
     emailService 
-} : SendEmailRequest) : Promise<SendEmailResponse> => {
+}) => {
     await emailService.Send({
         recipient : 'imagetrackerassistant@gmail.com',
         reason,

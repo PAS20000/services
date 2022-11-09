@@ -6,9 +6,12 @@ interface VerifyEmailRequest extends MemberReponseApplicationModel {
 
 interface VerifyEmailResponse {
     status : boolean
-} 
+}
+
+type CreateVerifyEmail = (req : VerifyEmailRequest) => Promise<VerifyEmailResponse>
 
 export {
     VerifyEmailRequest,
-    VerifyEmailResponse
+    VerifyEmailResponse,
+    CreateVerifyEmail
 }

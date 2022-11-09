@@ -4,9 +4,12 @@ interface DeleteRequest extends MemberReponseApplicationModel {
     repository : MemberRepositoryResponseApplicationModel
 }
 
-type DeleteResponse = void
+type DeleteResponse = Promise<void>
+
+type CreateDelete = (req : DeleteRequest) => DeleteResponse
 
 export {
     DeleteRequest,
-    DeleteResponse
+    DeleteResponse,
+    CreateDelete
 }

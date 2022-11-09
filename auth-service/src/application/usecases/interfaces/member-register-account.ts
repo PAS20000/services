@@ -5,10 +5,13 @@ interface RegisterRequest extends MemberReponseApplicationModel {
     emailService : EmailServiceResponseApplicationModel
 }
 
-type RegisterResponse = void
+type RegisterResponse = Promise<void>
+
+type CreateRegister = (req : RegisterRequest) => RegisterResponse
 
 export {
     RegisterRequest,
-    RegisterResponse
+    RegisterResponse,
+    CreateRegister
 }
 

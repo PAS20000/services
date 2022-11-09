@@ -1,15 +1,15 @@
 import bcrypt from 'bcrypt'
 import MemberInvalidPassword from '../errors/member-invalid-password'
 import MemberNotFound from '../errors/member-not-found'
-import { AuthRequest, AuthResponse } from './interfaces'
+import { CreateAuth } from './interfaces'
 
-const Auth = async ({
+const Auth : CreateAuth = async ({
     email,
     password,
     access_token,
     refresh_token,
     repository
-} : AuthRequest) : Promise<AuthResponse> => {
+}) => {
     const member = await repository.findByEmail(email)
     
     if (member) {

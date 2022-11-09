@@ -58,6 +58,8 @@ interface MemberResponse {
     refresh_token : string
 }
 
+type CreateMember = (req : MemberRequest) => Promise<MemberResponse>
+
 
 export {
     PasswordRequest,
@@ -67,4 +69,5 @@ export {
     Signature,
     Partner,
     FieldsVerfied,
+    CreateMember
 }

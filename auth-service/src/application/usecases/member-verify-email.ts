@@ -1,7 +1,7 @@
 import MemberNotFound from "../errors/member-not-found"
-import { VerifyEmailRequest, VerifyEmailResponse } from "./interfaces/member-verify-email"
+import { CreateVerifyEmail } from "./interfaces/member-verify-email"
 
-const VerifyEmail = async ({ 
+const VerifyEmail : CreateVerifyEmail = async ({ 
     createdAt,
     email,
     id,
@@ -10,11 +10,13 @@ const VerifyEmail = async ({
     password,
     secrets,
     signature,
-    token,
     updatedAt,
     verified,
-    repository 
-} : VerifyEmailRequest) : Promise<VerifyEmailResponse> => {
+    access_token,
+    refresh_token,
+    avatar,
+    repository ,
+}) => {
     const member = await repository.findByEmail(email)
 
     if (member) {
@@ -27,7 +29,9 @@ const VerifyEmail = async ({
             password,
             secrets,
             signature,
-            token,
+            avatar,
+            access_token,
+            refresh_token,
             updatedAt,
             verified : {
                 ...verified,

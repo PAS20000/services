@@ -10,7 +10,10 @@ interface MemberAuthRequestController {
     password : string
 }
 
+type CreateMemberAuthController = (req : MemberAuthResponseController) => MemberAuthRequestController
+
 export {
     MemberAuthResponseController,
-    MemberAuthRequestController
+    MemberAuthRequestController,
+    CreateMemberAuthController
 }

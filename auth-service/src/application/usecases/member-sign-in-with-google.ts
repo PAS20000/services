@@ -2,13 +2,13 @@ import { google } from 'googleapis'
 import Member from '../../domain/entities/member/member'
 import { GoogleApi } from '../../utils/axios'
 import config from '../../utils/config'
-import { GoogleUser, SignInWithGoogleRequest } from './interfaces'
+import { CreateSignInWithGoogle, GoogleUser } from './interfaces'
 
 const GOOGLE_CLIENT_ID = config.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = config.GOOGLE_CLIENT_SECRET
 const redirectUri = `https://api.imagetracker.com/oauth/redirect/google`
 
-const SignInWithGoogle = async ({ code, repository } : SignInWithGoogleRequest) => {   
+const SignInWithGoogle : CreateSignInWithGoogle = async ({ code, repository }) => {   
     const oauth2Clients = new google.auth.OAuth2(
         GOOGLE_CLIENT_ID,
         GOOGLE_CLIENT_SECRET,

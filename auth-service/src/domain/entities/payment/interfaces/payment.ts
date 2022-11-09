@@ -18,7 +18,10 @@ interface PaymentResponse {
     memberId : string
 }
 
+type CreatePayment = (req : PaymentRequest) => Promise<PaymentResponse>
+
 export {
+    CreatePayment,
     PaymentRequest,
     PaymentResponse,
     Status

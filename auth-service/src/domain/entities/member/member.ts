@@ -1,11 +1,11 @@
 import crypto from 'crypto'
 import MemberValidator from '../../validators/member'
-import { MemberRequest, MemberResponse } from './interfaces/member'
+import { CreateMember, MemberRequest, MemberResponse } from './interfaces/member'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import config from '../../../utils/config'
 
-const Member = async (props : MemberRequest) : Promise<MemberResponse> => {
+const Member : CreateMember = async (props) => {
     
     const FieldsOptions = {
         ...props,
@@ -39,7 +39,7 @@ const Member = async (props : MemberRequest) : Promise<MemberResponse> => {
     } as MemberResponse
    
     const member = MemberValidator(MemberModel)
-    console.log(member.refresh_token)
+   
     return Object.freeze(member)
 }
 

@@ -9,7 +9,10 @@ interface AuthResponse {
     refresh_token : string
 }
 
+type CreateAuth = (req : AuthRequest) => Promise<AuthResponse>
+
 export {
     AuthRequest,
-    AuthResponse
+    AuthResponse,
+    CreateAuth
 }

@@ -14,8 +14,11 @@ interface MemberRepositoryResponseApplicationModel<T = MemberInRepositoryApplica
     update(newMember : MemberResponse) : Promise<T>
 }
 
+type CreateMemberRepositoryApplicationModel = (req : MemberRepositoryResponseApplicationModel) => MemberInRepositoryApplicationModel
+
 export {
     MemberRepositoryResponseApplicationModel,
     MemberInRepositoryApplicationModel,
-    MemberReponseApplicationModel
+    MemberReponseApplicationModel,
+    CreateMemberRepositoryApplicationModel
 }

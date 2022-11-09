@@ -2,15 +2,14 @@ import bcrypt from 'bcrypt'
 import Member from '../../domain/entities/member/member'
 import MemberInvalidPassword from '../errors/member-invalid-password'
 import MemberNotFound from '../errors/member-not-found'
-import { UpdateRequest, UpdateResponse } from './interfaces/member-update-account'
+import { CreateUpdate } from './interfaces/member-update-account'
 
-const Update = async ({
+const Update : CreateUpdate = async ({
     id,
     password,
     repository,
-    newMember,
-    token
-} : UpdateRequest) : Promise<UpdateResponse> => {
+    newMember
+}) => {
     const currentMember = await repository.findById(id)
 
     if (currentMember) {

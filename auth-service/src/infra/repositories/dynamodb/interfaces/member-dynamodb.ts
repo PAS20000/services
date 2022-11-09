@@ -17,7 +17,8 @@ const InsertMemberDataInDynamoDb = ({
  secrets,
  signature,
  updatedAt,
- verified
+ verified,
+ avatar
 } : MemberResponseInfraModel) : MemberInDynamoDbDataModel => {
 
     return {
@@ -31,7 +32,8 @@ const InsertMemberDataInDynamoDb = ({
         updatedAt : updatedAt.toISOString(),
         createdAt : createdAt.toISOString(),
         verified,
-        refresh_token
+        refresh_token,
+        avatar
     }
 }
 
@@ -49,7 +51,8 @@ const MemberDataInDynamoDbResponseFinds = (req : MemberInDynamoDbDataModel) : Me
         secrets : req.secrets,
         signature : req.signature,
         verified : req.verified,
-        refresh_token : req.refresh_token
+        refresh_token : req.refresh_token,
+        avatar : ''
     }
 }
 

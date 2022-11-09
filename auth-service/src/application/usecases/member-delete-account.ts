@@ -1,13 +1,13 @@
 import bcrypt from 'bcrypt'
 import MemberInvalidPassword from '../errors/member-invalid-password'
 import MemberNotFound from '../errors/member-not-found'
-import { DeleteRequest, DeleteResponse } from './interfaces/member-delete-account'
+import { CreateDelete } from './interfaces/member-delete-account'
 
-const Delete = async ({
+const Delete : CreateDelete = async ({
     id,
     password,
     repository
-} : DeleteRequest) : Promise<DeleteResponse> => {
+}) => {
     const member = await repository.findById(id)
 
     if (member) {

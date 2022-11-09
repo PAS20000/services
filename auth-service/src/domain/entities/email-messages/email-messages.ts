@@ -1,6 +1,6 @@
-import { EmailMessagesResquet } from "./interfaces/email-messages"
+import { CreateEmailMessages } from "./interfaces/email-messages"
 
-const EmailMessages = ({ email, nickname, name, token } : EmailMessagesResquet) => {
+const EmailMessages : CreateEmailMessages = ({ email, nickname, name, token }) => {
 
     return {
         ThanksForSubscribe() {

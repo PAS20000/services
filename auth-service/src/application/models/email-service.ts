@@ -10,7 +10,10 @@ interface EmailServiceResponseApplicationModel {
    Send(props : EmailServiceSendRequestApplicationModel) : Promise<void>
 }
 
+type CreateEmailServiceApplicationModel = (req : EmailServiceSendRequestApplicationModel ) => EmailServiceResponseApplicationModel
+
 export {
     EmailServiceResponseApplicationModel,
-    EmailServiceSendRequestApplicationModel
+    EmailServiceSendRequestApplicationModel,
+    CreateEmailServiceApplicationModel
 }

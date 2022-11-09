@@ -6,9 +6,12 @@ interface SendEmailRequest extends MemberReponseApplicationModel {
     emailService : EmailServiceResponseApplicationModel
 }
 
-type SendEmailResponse = void
+type SendEmailResponse =  Promise<void>
+
+type CreateSendEmail = (req : SendEmailRequest) => SendEmailResponse
 
 export {
     SendEmailRequest,
-    SendEmailResponse
+    SendEmailResponse,
+    CreateSendEmail
 }

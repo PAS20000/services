@@ -5,9 +5,12 @@ interface ForgotPasswordRequest extends MemberReponseApplicationModel {
     repository : MemberRepositoryResponseApplicationModel
 }
 
-type ForgotPasswordResponse = void
+type ForgotPasswordResponse = Promise<void>
+
+type CreateForgotPassWord = (req : ForgotPasswordRequest) => ForgotPasswordResponse
 
 export {
     ForgotPasswordRequest,
-    ForgotPasswordResponse
+    ForgotPasswordResponse,
+    CreateForgotPassWord
 }

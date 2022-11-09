@@ -5,7 +5,7 @@ interface SignInWithGoogleRequest extends MemberReponseApplicationModel {
     repository : MemberRepositoryResponseApplicationModel
 }
 
-type SignInWithGoogleResponse = string
+type SignInWithGoogleResponse =  Promise<string>
 
 interface GoogleUser {
     sub : string
@@ -16,9 +16,11 @@ interface GoogleUser {
     given_name : string
 }
 
+type CreateSignInWithGoogle = (req : SignInWithGoogleRequest) => SignInWithGoogleResponse
 
 export {
     SignInWithGoogleRequest,
     SignInWithGoogleResponse,
-    GoogleUser
+    GoogleUser,
+    CreateSignInWithGoogle
 }
